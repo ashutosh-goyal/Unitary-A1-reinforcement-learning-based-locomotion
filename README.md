@@ -51,7 +51,7 @@ Evaluated over **20 independent randomized trials**, comparing the curriculum-on
 | Cost of Transport (CoT) | 3.40 | 3.53 | ~equal |
 | % Timesteps moving forward | 93.9% | 92.3% | ~equal |
 
-> Domain randomization dramatically reduces unrealistic bounding/jumping behavior (aerial phase 31.6% → 4.3%) while maintaining forward locomotion, making the gait far more suitable for inspection tasks. Both CoT values align with physically realistic benchmarks from ANYmal and Oncilla literature (~3–4).
+> Domain randomization dramatically reduces unrealistic bounding/jumping behavior (aerial phase 31.6% → 4.3%) while maintaining forward locomotion, making the gait far more suitable for inspection tasks.
 
 ---
 
@@ -84,11 +84,6 @@ https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomo
 <!-- Replace with your actual video -->
 https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion/assets/VIDEO_ID_3/domain_rand.mp4
 
----
-
-> **How to add your videos:** Drag and drop your `.mp4` files directly into a GitHub Issue or Pull Request to get a hosted URL, then paste it here. Or upload them to `assets/videos/` and reference them as shown above.
-
----
 
 ## 🔬 Method
 
