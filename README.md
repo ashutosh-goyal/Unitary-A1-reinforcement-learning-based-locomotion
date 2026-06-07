@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Robust Multi-Gait Locomotion Learning for Unitree A1 Quadruped Robot
+# 🤖 Robust multi-gait locomotion learning for Unitree A1 quadruped robot
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![PyBullet](https://img.shields.io/badge/Simulation-PyBullet-orange?style=for-the-badge)](https://pybullet.org/)
@@ -10,7 +10,6 @@
 
 **End-to-end reinforcement learning framework for robust quadruped locomotion using reward design, curriculum learning, and domain randomization — targeted at infrastructure inspection scenarios.**
 
-*Research Project · Mechatronics M.Sc. · Institute of Digital and Autonomous Construction, TUHH*
 
 [🎥 Demo Videos](#-demo-videos) · [⚙️ Installation](#️-installation) · [🚀 Quick Start](#-quick-start) · [📊 Results](#-results)
 
@@ -43,13 +42,9 @@ Three key strategies are combined to tackle the challenges of legged locomotion:
 - 📈 **Curriculum Learning** — biologically inspired progressive reward scaling that avoids the *penalty dominance effect* (agent freezing in place)
 - 🌍 **Domain Randomization** — varying friction, payload, and motor strength to build robustness and improve sim-to-real transfer
 
-> **Research Question:** How can reward design, curriculum learning, and domain randomization be effectively integrated within an end-to-end RL framework to generate robust, natural, and energy-efficient quadruped locomotion for infrastructure inspection?
-
----
-
 ## 📊 Key Results
 
-Evaluated over **20 independent randomized trials**, comparing the curriculum-only baseline vs. the domain-randomized policy:
+Evaluated over **20 independent randomized trials**, comparing the curriculum-only vs. the domain-randomized policy:
 
 | Metric | Curriculum Only | + Domain Randomization | Change |
 |--------|:-:|:-:|:-:|
@@ -188,7 +183,7 @@ where `α(t) = training_step / max_steps` is the **curriculum scaling factor** �
 git clone https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion.git
 cd Unitary-A1-reinforcement-learning-based-locomotion
 
-# 2. Create virtual environment
+# 2. Create a virtual environment
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 
@@ -257,28 +252,10 @@ Unitary-A1-reinforcement-learning-based-locomotion/
 
 ---
 
-## 📚 Citation
 
-If you find this work useful, please cite:
-
-```bibtex
-@misc{goyal2025a1locomotion,
-  title   = {Robust multi-gait locomotion learning using reward design and domain
-             randomization techniques for quadruped robot-based infrastructure inspection},
-  author  = {Ashutosh Goyal},
-  school  = {Hamburg University of Technology (TUHH)},
-  year    = {2025},
-  note    = {Research Project, M.Sc. Mechatronics,
-             Institute of Digital and Autonomous Construction},
-  url     = {https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion}
-}
-```
-
----
 
 ## 🤝 Acknowledgements
 
-- **Supervisors:** Prof. Dr. Kay Smarsly and Aditya Tandon, M.Sc. — Institute of Digital and Autonomous Construction (IDAC), TUHH
 - [Unitree Robotics](https://www.unitree.com/) for the A1 platform
 - [PyBullet](https://pybullet.org/) physics engine
 - [Stable-Baselines3](https://stable-baselines3.readthedocs.io/) for PPO implementation
@@ -287,6 +264,4 @@ If you find this work useful, please cite:
 ---
 
 <div align="center">
-Hamburg University of Technology · Institute of Digital and Autonomous Construction<br>
-M.Sc. Mechatronics Research Project · January 2025
 </div>
