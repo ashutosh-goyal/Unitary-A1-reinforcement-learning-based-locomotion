@@ -9,23 +9,23 @@
 **End-to-end reinforcement learning framework for robust quadruped locomotion using reward design, curriculum learning, and domain randomization — targeted at infrastructure inspection scenarios.**
 
 
-[🎥 Demo Videos](#-demo-videos) · [⚙️ Installation](#️-installation) · [🚀 Quick Start](#-quick-start) · [📊 Results](#-results)
+[🎥 Demo videos](#-demo-videos) · [⚙️ Installation](#️-installation) · [🚀 Quick start](#-quick-start) · [📊 Results](#-results)
 
 ---
 
 </div>
 
-## 📋 Table of Contents
+## 📋 Table of contents
 
 - [Overview](#-overview)
-- [Key Results](#-key-results)
-- [Demo Videos](#-demo-videos)
+- [Key results](#-key-results)
+- [Demo videos](#-demo-videos)
 - [Method](#-method)
 - [Installation](#️-installation)
-- [Quick Start](#-quick-start)
-- [Project Structure](#-project-structure)
-- [Reward Function](#-reward-function)
-- [Domain Randomization](#-domain-randomization)
+- [Quick start](#-quick-start)
+- [Project structure](#-project-structure)
+- [Reward function](#-reward-function)
+- [Domain randomization](#-domain-randomization)
 
 ---
 
@@ -39,23 +39,23 @@ Three key strategies are combined to tackle the challenges of legged locomotion:
 - 📈 **Curriculum Learning** — biologically inspired progressive reward scaling that avoids the *penalty dominance effect* (agent freezing in place)
 - 🌍 **Domain Randomization** — varying friction, payload, and motor strength to build robustness and improve sim-to-real transfer
 
-## 📊 Key Results
+## 📊 Key results
 
 Evaluated over **20 independent randomized trials**, comparing the curriculum-only vs. the domain-randomized policy:
 
-| Metric | Curriculum Only | + Domain Randomization | Change |
+| Metric | Curriculum only | + Domain randomization | Change |
 |--------|:-:|:-:|:-:|
-| Mean Forward Velocity | 0.352 m/s | 0.290 m/s | -17.6% |
-| Aerial Phase | **31.6%** | **4.3%** | ✅ **-86%** |
-| Mean Feet on Ground | 1.79 | 2.27 | ✅ +27% |
+| Mean forward velocity | 0.352 m/s | 0.290 m/s | -17.6% |
+| Aerial phase | **31.6%** | **4.3%** | ✅ **-86%** |
+| Mean feet on ground | 1.79 | 2.27 | ✅ +27% |
 | Cost of Transport (CoT) | 3.40 | 3.53 | ~equal |
-| % Time Moving Forward | 93.9% | 92.3% | ~equal |
+| % Timesteps moving forward | 93.9% | 92.3% | ~equal |
 
 > Domain randomization dramatically reduces unrealistic bounding/jumping behavior (aerial phase 31.6% → 4.3%) while maintaining forward locomotion, making the gait far more suitable for inspection tasks. Both CoT values align with physically realistic benchmarks from ANYmal and Oncilla literature (~3–4).
 
 ---
 
-## 🎥 Demo Videos
+## 🎥 Demo videos
 
 Three training configurations are shown — each illustrating a clear progression in locomotion quality.
 
@@ -92,7 +92,7 @@ https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomo
 
 ## 🔬 Method
 
-### Simulation Environment
+### Simulation environment
 
 - **Physics engine:** PyBullet at 240 Hz physics timestep; 80 Hz effective control frequency (3 physics steps per action)
 - **Robot model:** Unitree A1 URDF — 12 actuated revolute joints, 4 legs × 3 DOF (hip, thigh, calf)
@@ -100,21 +100,21 @@ https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomo
 - **Action space:** 12-dimensional continuous joint position offsets ∈ [−1, 1]
 - **Control:** PD controller with Kp = 200, Kd = 1.0; torques clipped per joint
 
-### Training Pipeline
+### Training pipeline
 
 ```
-PyBullet Simulation
+PyBullet simulation
        ↓
-  Gymnasium Env (custom OpenCatGymEnv)
+  Gymnasium env (custom OpenCatGymEnv)
        ↓
-  PPO Agent (Stable-Baselines3)
+  PPO agent (Stable-Baselines3)
        ↓ ↑
-  Policy Network (MLP 256×256)
+  Policy network (MLP 256×256)
        ↑
-  Domain Randomization + Curriculum Reward
+  Domain randomization + Curriculum reward
 ```
 
-### PPO Hyperparameters
+### PPO hyperparameters
 
 | Parameter | Value |
 |-----------|-------|
@@ -129,7 +129,7 @@ PyBullet Simulation
 
 ---
 
-## 🏆 Reward Function
+## 🏆 Reward function
 
 The composite reward balances 11 objectives:
 
@@ -155,7 +155,7 @@ where `α(t) = training_step / max_steps` is the **curriculum scaling factor** �
 
 ---
 
-## 🌍 Domain Randomization
+## 🌍 Domain randomization
 
 | Parameter | Range | Purpose |
 |-----------|-------|---------|
@@ -201,7 +201,7 @@ tensorboard
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick start
 
 ### Train from scratch
 
@@ -227,7 +227,7 @@ tensorboard --logdir logs/
 
 ---
 
-## 📁 Project Structure
+## 📁 Project structure
 
 ```
 Unitary-A1-reinforcement-learning-based-locomotion/
