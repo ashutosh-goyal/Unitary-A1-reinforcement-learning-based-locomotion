@@ -5,8 +5,6 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![PyBullet](https://img.shields.io/badge/Simulation-PyBullet-orange?style=for-the-badge)](https://pybullet.org/)
 [![PPO](https://img.shields.io/badge/Algorithm-PPO-green?style=for-the-badge)](https://arxiv.org/abs/1707.06347)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![TUHH](https://img.shields.io/badge/Institute-TUHH%20IDAC-blue?style=for-the-badge)](https://www.tuhh.de)
 
 **End-to-end reinforcement learning framework for robust quadruped locomotion using reward design, curriculum learning, and domain randomization — targeted at infrastructure inspection scenarios.**
 
