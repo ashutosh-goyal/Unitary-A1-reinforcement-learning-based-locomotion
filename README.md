@@ -39,6 +39,8 @@ Three key strategies are combined to tackle the challenges of legged locomotion:
 - 📈 **Curriculum Learning** — biologically inspired progressive reward scaling that avoids the *penalty dominance effect* (agent freezing in place)
 - 🌍 **Domain Randomization** — varying friction, payload, and motor strength to build robustness and improve sim-to-real transfer
 
+---
+
 ## 📊 Key results
 
 Evaluated over **20 independent randomized trials**, comparing the curriculum-only vs. the domain-randomized policy:
@@ -84,7 +86,7 @@ https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomo
 <!-- Replace with your actual video -->
 https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion/assets/VIDEO_ID_3/domain_rand.mp4
 
-
+---
 ## 🔬 Method
 
 ### Simulation environment
