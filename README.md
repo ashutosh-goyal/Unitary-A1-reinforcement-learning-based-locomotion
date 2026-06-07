@@ -28,7 +28,6 @@
 - [Project Structure](#-project-structure)
 - [Reward Function](#-reward-function)
 - [Domain Randomization](#-domain-randomization)
-- [Citation](#-citation)
 
 ---
 
