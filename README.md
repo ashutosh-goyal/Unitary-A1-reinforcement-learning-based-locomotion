@@ -66,7 +66,6 @@ Three training configurations are shown — each illustrating a clear progressio
 > The robot fails to develop any coordinated locomotion. All reward penalties activate simultaneously, causing the agent to freeze or jitter in place — the **penalty dominance effect**.
 
 <!-- Replace with your actual video -->
-https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion/assets/VIDEO_ID_1/no_curriculum.mp4
 https://github.com/user-attachments/assets/6f5b75d9-5ec6-4c1d-aedf-845c69b4b6b6
 
 ---
