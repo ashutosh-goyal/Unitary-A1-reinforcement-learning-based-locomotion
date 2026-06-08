@@ -57,34 +57,24 @@ Evaluated over **20 independent randomized trials**, comparing the curriculum-on
 
 ---
 
-## 🎥 Demo videos
+## 🎥 Demo Video
 
-Three training configurations are shown — each illustrating a clear progression in locomotion quality.
+The video below shows three training configurations in sequence, illustrating a clear progression in locomotion quality.
 
-### Video 1 — No Curriculum (Baseline Failure)
-
-> The robot fails to develop any coordinated locomotion. All reward penalties activate simultaneously, causing the agent to freeze or jitter in place — the **penalty dominance effect**.
-
-<!-- Replace with your actual video -->
 https://github.com/user-attachments/assets/6f5b75d9-5ec6-4c1d-aedf-845c69b4b6b6
 
+### Part 1 — No Curriculum (Naive reward optimization)
+> The robot fails to develop any coordinated locomotion. All reward penalties activate simultaneously, causing the agent to freeze or jitter in place — the **penalty dominance effect**.
+
 ---
 
-### Video 2 — Curriculum Learning (Stable but Bounding)
-
+### Part 2 — Curriculum Learning (Stable but Bounding)
 > The robot learns stable, rhythmic locomotion with coordinated leg movements. However, the gait shows **elevated aerial phases (~31.6%)** — the robot bounds rather than walks, which is suboptimal for inspection.
 
-<!-- Replace with your actual video -->
-https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion/assets/VIDEO_ID_2/curriculum.mp4
-
 ---
 
-### Video 3 — Curriculum + Domain Randomization (Final Policy ✅)
-
+### Part 3 — Curriculum + Domain Randomization (Final Policy ✅)
 > The robot achieves **contact-consistent, stable locomotion** with aerial phase reduced to just 4.3% and mean foot contact improved to 2.3 feet. This is the inspection-ready policy.
-
-<!-- Replace with your actual video -->
-https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion/assets/VIDEO_ID_3/domain_rand.mp4
 
 ---
 ## 🔬 Method
