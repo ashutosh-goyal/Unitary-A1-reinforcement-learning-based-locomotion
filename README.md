@@ -27,6 +27,17 @@
 - [Reward function](#-reward-function)
 - [Domain randomization](#-domain-randomization)
 
+## 📋 Table of Contents
+-[🔍 Overview](#-overview)
+-[📊 Key Results](#-key-results) 
+-[🎥 Demo Video](#-demo-video) 
+-[🧠 Method](#-method) 
+-[⚙️ Installation](#️-installation)
+-[🚀 Quick Start](#-quick-start) 
+-[📁 Project Structure](#-project-structure) 
+-[🏆 Reward Function](#-reward-function) 
+-[🎲 Domain Randomization](#-domain-randomization)
+
 ---
 
 ## 🧠 Overview
