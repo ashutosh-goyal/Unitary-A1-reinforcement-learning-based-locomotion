@@ -67,6 +67,7 @@ Three training configurations are shown — each illustrating a clear progressio
 
 <!-- Replace with your actual video -->
 https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion/assets/VIDEO_ID_1/no_curriculum.mp4
+https://github.com/user-attachments/assets/6f5b75d9-5ec6-4c1d-aedf-845c69b4b6b6
 
 ---
 
