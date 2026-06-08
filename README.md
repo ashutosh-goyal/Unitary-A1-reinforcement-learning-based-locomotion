@@ -69,12 +69,12 @@ https://github.com/user-attachments/assets/6f5b75d9-5ec6-4c1d-aedf-845c69b4b6b6
 ---
 
 ### Part 2 — Curriculum Learning (Stable but Bounding)
-> The robot learns stable, rhythmic locomotion with coordinated leg movements. However, the gait shows **elevated aerial phases (~31.6%)** — the robot bounds rather than walks, which is suboptimal for inspection.
+> The robot learns stable, rhythmic locomotion with coordinated leg movements. However, the gait shows **elevated aerial phases** — the robot bounds rather than walks, which is suboptimal for inspection.
 
 ---
 
 ### Part 3 — Curriculum + Domain Randomization (Final Policy ✅)
-> The robot achieves **contact-consistent, stable locomotion** with aerial phase reduced to just 4.3% and mean foot contact improved to 2.3 feet. This is the inspection-ready policy.
+> The robot achieves **contact-consistent, stable locomotion** with a reduction in aerial phase and an improvement in mean foot contact. This is the inspection-ready policy.
 
 ---
 ## 🔬 Method
