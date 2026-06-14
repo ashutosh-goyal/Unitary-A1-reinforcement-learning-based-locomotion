@@ -9,29 +9,11 @@
 **End-to-end reinforcement learning framework for robust quadruped locomotion using reward design, curriculum learning, and domain randomization — targeted at infrastructure inspection scenarios.**
 
 
-[🎥 Demo videos](#-demo-videos) · [⚙️ Installation](#️-installation) · [🚀 Quick start](#-quick-start) · [📊 Results](#-results)
-
 ---
 
 </div>
 
-## 📋 Table of contents
-
-- [Overview](#-overview)
-- [Key results](#-key-results)
-- [Demo videos](#-demo-videos)
-- [Method](#-method)
-- [Installation](#️-installation)
-- [Quick start](#-quick-start)
-- [Project structure](#-project-structure)
-- [Reward function](#-reward-function)
-- [Domain randomization](#-domain-randomization)
-
----
-
-## 🧠 Overview
-
-This project investigates **robust multi-gait quadruped locomotion** using an end-to-end reinforcement learning framework based on **Proximal Policy Optimization (PPO)**. The Unitree A1 quadruped robot is trained entirely in a **PyBullet physics simulation** to walk stably, efficiently, and robustly — without any hand-crafted gait design or reference motion data.
+The project investigates **robust multi-gait quadruped locomotion** using an end-to-end reinforcement learning framework based on **Proximal Policy Optimization (PPO)**. The Unitree A1 quadruped robot is trained entirely in a **PyBullet physics simulation** to walk stably, efficiently, and robustly — without any hand-crafted gait design or reference motion data.
 
 Three key strategies are combined to tackle the challenges of legged locomotion:
 
@@ -57,7 +39,7 @@ Evaluated over **20 independent randomized trials**, comparing the curriculum-on
 
 ---
 
-## 🎥 Demo Video
+## 🎥 Trained model
 
 The video below shows three training configurations in sequence, illustrating a clear progression in locomotion quality.
 
@@ -120,25 +102,25 @@ PyBullet simulation
 
 The composite reward balances 11 objectives:
 
-```python
-r = 20 · r_forward + α(t) · Σ wᵢ · rᵢ
-```
+$$r = W \cdot r_{\text{forward}} + \alpha(t) \cdot \sum_{i} w_i \cdot r_i$$
+
+where  $\alpha(t) = \dfrac{t_{\text{step}}}{t_{\text{max}}} \in [0, 1]$  is the **curriculum scaling factor** — it starts at 0 and grows to 1, progressively introducing penalties.
 
 where `α(t) = training_step / max_steps` is the **curriculum scaling factor** — it starts at 0 and grows to 1, progressively introducing penalties.
 
 | Component | Formula | Purpose |
 |-----------|---------|---------|
-| Forward velocity | `min(vx, v_target)` | Primary locomotion objective |
-| Stability | `-(vy² + ω_yaw²)` | Reduce sideways drift and spinning |
-| Energy | `-τᵀq̇` | Minimize actuator power consumption |
-| Torque smoothness | `-‖τt − τt-1‖²` | Prevent abrupt torque changes |
-| Action smoothness | `-‖at − at-1‖²` | Smooth joint command transitions |
-| Action magnitude | `-‖at‖²` | Prevent extreme joint commands |
-| Joint velocity | `-‖q̇‖²` | Reduce high-frequency oscillations |
-| Orientation | `-(roll² + pitch²)` | Maintain upright posture |
-| Vertical velocity | `-vz²` | Suppress vertical bouncing |
-| Foot slip | `-Σ ‖v_foot,xy‖` | Stable ground contact |
-| Leg symmetry | `-std(W1, W2, W3, W4)` | Balanced, symmetric gait |
+| Forward velocity | $\min(v_x,\, v_{\text{target}})$ | Primary locomotion objective |
+| Stability | $-(v_y^2 + \omega_{\text{yaw}}^2)$ | Reduce sideways drift and spinning |
+| Energy | $-\boldsymbol{\tau}^\top \dot{\mathbf{q}}$ | Minimize actuator power consumption |
+| Torque smoothness | $-\|\tau_t - \tau_{t-1}\|^2$ | Prevent abrupt torque changes |
+| Action smoothness | $-\|a_t - a_{t-1}\|^2$ | Smooth joint command transitions |
+| Action magnitude | $-\|\mathbf{a}_t\|^2$ | Prevent extreme joint commands |
+| Joint velocity | $-\|\dot{\mathbf{q}}\|^2$ | Reduce high-frequency oscillations |
+| Orientation | $-(\phi^2 + \theta^2)$ | Maintain upright posture |
+| Vertical velocity | $-v_z^2$ | Suppress vertical bouncing |
+| Foot slip | $-\sum_k \|\mathbf{v}^{\text{foot},k}_{xy}\|$ | Stable ground contact |
+| Leg symmetry | $-\{std}(W_1, W_2, W_3, W_4)$ | Balanced, symmetric gait |
 
 ---
 
@@ -152,90 +134,6 @@ where `α(t) = training_step / max_steps` is the **curriculum scaling factor** �
 | Initial forward velocity | 0.1 → 0.25 m/s | Randomized initial conditions |
 
 ---
-
-## ⚙️ Installation
-
-### Prerequisites
-
-- Python 3.8+
-- pip
-
-### Steps
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/ashutosh-goyal/Unitary-A1-reinforcement-learning-based-locomotion.git
-cd Unitary-A1-reinforcement-learning-based-locomotion
-
-# 2. Create a virtual environment
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-```
-
-### requirements.txt (key packages)
-
-```
-pybullet
-gymnasium
-stable-baselines3
-numpy
-noise
-tensorboard
-```
-
----
-
-## 🚀 Quick start
-
-### Train from scratch
-
-```bash
-# Curriculum only
-python train.py --mode curriculum
-
-# Curriculum + Domain Randomization (recommended)
-python train.py --mode domain_rand
-```
-
-### Evaluate a trained policy
-
-```bash
-python eval.py --checkpoint checkpoints/policy_final.zip --render
-```
-
-### Monitor training with TensorBoard
-
-```bash
-tensorboard --logdir logs/
-```
-
----
-
-## 📁 Project structure
-
-```
-Unitary-A1-reinforcement-learning-based-locomotion/
-├── assets/
-│   └── videos/                  # Simulation recordings (.mp4)
-├── checkpoints/                 # Saved PPO model checkpoints (.zip)
-├── envs/
-│   └── a1_gym_env.py            # Custom Gymnasium environment (OpenCatGymEnv)
-├── models/
-│   └── a1_urdf/                 # Unitree A1 URDF files
-├── logs/                        # TensorBoard training logs
-├── terrain/
-│   └── perlin_terrain.py        # Procedural terrain generation (Perlin noise)
-├── train.py                     # Main training script
-├── eval.py                      # Evaluation and rendering script
-├── requirements.txt
-└── README.md
-```
-
----
-
 
 
 ## 🤝 Acknowledgements
